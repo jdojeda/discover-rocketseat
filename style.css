@@ -28,12 +28,6 @@
 }
 
 body {
-  /* background-image: url(/assets/bg-mobile.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover; */
-
-  /* background: color image repeat position/size */
   background: var(--bg-url) no-repeat top center/cover;
 }
 
@@ -43,54 +37,34 @@ body * {
 }
 
 /* container */
-
 #container {
   width: 360px;
-  /* height: 712px; */
-  /* border: 1px solid red; */
-
   margin: 56px auto 0px;
   padding: 0 24px;
 }
 
 /* profiler */
-
-
 #profile {
   text-align: center;
   padding: 24px;
 }
 
 #profile img {
-  /* display: block; */
   width: 112px;
-  /* margin: auto; */
-  /* border: 2px solid var(--stroke-color-dark-mode, rgba(255, 255, 255, 0.50)); */
   border: 2px solid var(--stroke-color);
   border-radius: 112px;
-
-
 }
 
 #profile p {
-  /* font-size: 16px; */
-  /* font-style: normal; */
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   margin-top: 8px;
 }
 
-
 /* switch */
-
 #switch {
-  /* border: 1px solid red; */
-  /* "position: relative" hace que el "position: absolute del button" depende del "relative".  */
   position: relative;
-  /* Ajustamos la largura para que sea igual al "track(span)" */
   width: 64px;
-
-  /* ahora centramos el switch al centro del portview */
   margin: 4px auto;
 }
 
@@ -101,20 +75,10 @@ body * {
   border: 0;
   border-radius: 50%;
   color: var(--text-color-light-mode);
-
-  /* este parámetro hace que el button inmediatamente quede sobrepuesto (ver la explicación de "Poscionamiento de elementos en CSS") más abajo. */
   position: absolute;
-
-  /* luego le indicamos en qué nivel de posicionamiento quedará con relación al siguiente elemento, que dentro del HMTL, es el span. */
-  z-index: 1; /* hace que suba una camada arriba */
-
-  /* "position:absolute" nos permite usar la propiedad "z-index" además de otras.
-  Si usamos "left: 0" y el button tiene "position: absolute" pero el "#shitch" no tiene "position: relative" esta propiedad "left:0" hace que el icono quede relativo con relación al portview y con relación al "handle" que es donde queremos posicionar nuestro icono.
-  */
+  z-index: 1;
   left: 0;
-  /* "transform" permite manipular la posición "Y" en este caso, con relación al bloque. */
   transform: translateY(-50%);
-  /* formazamo con "top" para que alinea al centro del bloque. */
   top: 50%;
 }
 
@@ -127,7 +91,6 @@ body * {
   display: block;
   width: 64px;
   height: 24px;
-  /* flex-shrink: 0; */
   border-radius: 9999px;
   border: 1px solid var(--stroke-color);
   background: var(--surface-color);
@@ -135,48 +98,27 @@ body * {
   -webkit-backdrop-filter: blur(4px);
 }
 
-/* Posicionando elementos con CSS */
-/* Por padrón, si tenemos 2 elementos en:
-   block: posiciona uno debajo del otro.
-   inline: posiciona uno al lado del otro.
-
-   Ahora para sobreponer uno encima del otro, como si fueran que están en camadas. 
-
-   En este caso el elemento "track (span)" debemos de poner debajo del elemento "handle (button)".
-
-   */
-
 /* links */
-
-
 ul {
   list-style: none;
 
   display: flex;
   flex-direction: column;
   gap: 16px;
-
   padding: 24px 0px;
 }
 
 ul li a {
-  /* border: 1px solid red; */
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 16px 24px;
-
   border: 1px solid var(--stroke-color);
   background: var(--surface-color);
   backdrop-filter: blur(4px);
-
   border-radius: 8px;
-
   text-decoration: none;
   font-weight: 500;
-
   transition: background 0.2s;
 }
 
@@ -189,12 +131,8 @@ ul li a:hover {
 #social-links {
   display: flex;
   justify-content: center;
-  /* el gap debe ser 16px si se usan icons con zonas seguras que suman 16px, por eso en figma el gap figura 16, pero aquí necesitamos agregarle más 16 porque los iconos son fuentes y no tienen la zona segura. */
-  
   gap: 8px; 
-
   padding: 24px 0;
-  /* para los iconos */
   font-size: 24px;
 }
 
@@ -203,7 +141,6 @@ ul li a:hover {
   align-items: center;
   justify-content: center;
   padding: 12px;
-
   transition: background 0.2s;
   border-radius: 50%;
 }
@@ -218,31 +155,3 @@ footer {
   text-align: center;
   font-size: 14px;
 }
-
-/* alineación en CSS */
-
-/* 
-La alineación en CCS se puede hacer para:
-
-1. Textos
-  ---------------
-  - text-align: center;
-
-2. Display block.
-  ---------------
-  - margin: 4px auto;
-
-3. Display flex.
-  ---------------
-  - display: flex;
-  - aling-items: center;
-  - justify-content: center;
-
-4. Position Absolute.
-  ------------------
-  - position: absolute;
-  - top: 50%;
-  - right: 0;
-  - z-index: 1;
-  - transform: translateY(-50%);
-*/
